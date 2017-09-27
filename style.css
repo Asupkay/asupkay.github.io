@@ -11,12 +11,16 @@
 }
 
 #descriptionOfMe {
-    width: 33%;
+    width: 50%;
     margin-right: auto;
     margin-left: auto;
+    text-align: center;
+}
+
+#descriptionOfMe>h2 {
+    font-size: calc(18px + 1vw);
 }
 
 #descriptionOfMe>p {
-    text-align: center;
     font-size: calc(12px + 1vw);
 }
