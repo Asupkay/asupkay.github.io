@@ -1,3 +1,28 @@
+html {
+    height: 100%;
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(red, yellow); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(red, yellow); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(red, yellow); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(red, yellow); /* Standard syntax */
+}
+
+body {
+    height: 100%;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.wrapper {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
 #meImageHolder {
     width: 25%;
     margin-right: auto;
@@ -10,6 +35,13 @@
     border-radius: 50%;
 }
 
+#meImageHolder>hr {
+    height: 1px;
+    margin: 1em 0;
+    background-color: black;
+    border: 0;
+}
+
 #descriptionOfMe {
     width: 50%;
     margin-right: auto;
@@ -18,9 +50,35 @@
 }
 
 #descriptionOfMe>h2 {
-    font-size: calc(18px + 1vw);
+    font-weight: normal;
+    font-size: calc(24px + 3vw);
+    font-family: 'Libre Barcode 128 Text', cursive;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 #descriptionOfMe>p {
+    margin-top: 3%;
     font-size: calc(12px + 1vw);
+    font-family: 'Raleway', sans-serif
+}
+
+#socialMediaLinks>a:link {
+    color: black;
+}
+
+#socialMediaLinks>a:visited {
+    color: black;
+}
+
+#socialMediaLinks>a:hover {
+    color: blue; 
+}
+
+#socialMediaLinks>a:active {
+    color: black;
+}
+
+#socialMediaLinks>a>i {
+    font-size: calc(20px + 2vw);
 }
