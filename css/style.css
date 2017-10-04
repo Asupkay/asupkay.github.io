@@ -89,8 +89,25 @@ main {
     font-size: calc(20px + 2vw);
 }
 
+#resumeLink:link {
+    color:black;
+}
+
+#resumeLink:visited {
+    color:black;
+}
+
+#resumeLink:hover {
+    color:white;
+}
+
+#resumeLink:active {
+    color:black
+}
+
 #resumeButton {
     display: inline-block;
+    color:inherit;
     padding-left: 2%;
     padding-right: 2%;
     margin-top: 2%;
