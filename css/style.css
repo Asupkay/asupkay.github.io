@@ -3,6 +3,11 @@ html {
     width 100%;
 }
 
+.centerBlock {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .gradientBG {
     margin: 0;
     padding: 0;
@@ -17,22 +22,22 @@ html {
     background-attachment: fixed;
 }
 
-main {
+/*----------------------Center Div Vertically----------------------*/
+.table {
     height: 100%;
     width: 100%;
     display: table;
 }
 
-.wrapper {
+.tablecellwrapper {
     display: table-cell;
     height: 100%;
     vertical-align: middle;
 }
 
+/*----------------------Format Image of Me in Main----------------------*/
 #meImageHolder {
     width: 25%;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 #meImageHolder>img {
@@ -48,10 +53,9 @@ main {
     border: 0;
 }
 
+/*----------------------Format Description of Me----------------------*/
 #descriptionOfMe {
     width: 50%;
-    margin-right: auto;
-    margin-left: auto;
     text-align: center;
 }
 
@@ -69,6 +73,7 @@ main {
     font-family: 'Raleway', sans-serif
 }
 
+/*----------------------Social Media Links----------------------*/
 #socialMediaLinks>a:link {
     color: black;
 }
@@ -89,6 +94,7 @@ main {
     font-size: calc(20px + 2vw);
 }
 
+/*----------------------Link to Resume----------------------*/
 #resumeLink:link {
     color:black;
 }
@@ -121,3 +127,34 @@ main {
     margin-bottom: 3%;
     font-family: 'Raleway', sans-serif;
 }
+
+
+/*----------------------Resume Image Formatting----------------------*/
+.putImageUpperLeft {
+    margin-left: 5%;
+    float: left;
+}
+
+.imageVerticalizer {
+    display:inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.scaleCircleImg>img {
+    height: 90%;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+#nameOnResume {
+    display: block;
+    float: right;
+}
+
+#resumeHeader {
+    width: 90%;
+    height: 20%;
+}
+
+
