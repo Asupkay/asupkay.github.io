@@ -130,31 +130,3 @@ html {
     font-family: 'Raleway', sans-serif;
 }
 
-
-/*----------------------Resume Image Formatting----------------------*/
-.putImageUpperLeft {
-    margin-left: 5%;
-    float: left;
-}
-
-.scaleCircleImg>img {
-    height: 90%;
-    vertical-align: middle;
-    border-radius: 50%;
-}
-
-#nameOnResume {
-    font-size: calc(12px + 1vw);
-    margin-left: 5%;
-    font-family: 'Raleway', sans-serif;
-    display: block;
-    float: left;
-}
-
-#resumeHeader {
-    width: 90%;
-    height: 20%;
-    background-color: gray;
-}
-
-
