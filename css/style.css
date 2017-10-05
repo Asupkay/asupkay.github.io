@@ -38,6 +38,7 @@ html {
 /*----------------------Format Image of Me in Main----------------------*/
 #meImageHolder {
     width: 25%;
+    margin-top: 3%;
 }
 
 #meImageHolder>img {
@@ -119,6 +120,7 @@ html {
     margin-top: 2%;
     border-style: solid;
     border-width: 1px;
+    margin-bottom: 3%;
 }
 
 #resumeButton > p {
