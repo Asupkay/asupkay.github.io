@@ -55,7 +55,7 @@ main {
     text-align: center;
 }
 
-#descriptionOfMe>h2 {
+#descriptionOfMe>h1 {
     font-weight: normal;
     font-size: calc(24px + 3vw);
     font-family: 'Libre Barcode 128 Text', cursive;
