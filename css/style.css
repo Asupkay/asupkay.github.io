@@ -29,7 +29,7 @@ html {
     display: table;
 }
 
-.tablecellwrapper {
+.tableCellWrapper {
     display: table-cell;
     height: 100%;
     vertical-align: middle;
@@ -137,12 +137,6 @@ html {
     float: left;
 }
 
-.imageVerticalizer {
-    display:inline-block;
-    height: 100%;
-    vertical-align: middle;
-}
-
 .scaleCircleImg>img {
     height: 90%;
     vertical-align: middle;
@@ -150,13 +144,17 @@ html {
 }
 
 #nameOnResume {
+    font-size: calc(12px + 1vw);
+    margin-left: 5%;
+    font-family: 'Raleway', sans-serif;
     display: block;
-    float: right;
+    float: left;
 }
 
 #resumeHeader {
     width: 90%;
     height: 20%;
+    background-color: gray;
 }
 
 
