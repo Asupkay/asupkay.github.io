@@ -1,5 +1,5 @@
-#MY PERSONAL WEBSITE
-##Elements
+# MY PERSONAL WEBSITE
+## Elements
 * Picture of me
 * My name
 * Short Description of who I am
