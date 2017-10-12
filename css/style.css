@@ -1,11 +1,24 @@
-html {
+html, body {
     height: 100%;
     width 100%;
+    padding: 0;
+    margin: 0;
 }
+
+
 
 .centerBlock {
     margin-left: auto;
     margin-right: auto;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.centerInDiv {
+    vertical-align: middle;
+    display: table-cell;
 }
 
 .gradientBG {
@@ -14,12 +27,15 @@ html {
     width: 100%;
     height: 100%;
     background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(red, yellow); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(red, yellow); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(red, yellow); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(red, yellow); /* Standard syntax */
+    background: -webkit-linear-gradient(#7f53a4, #a57ac9); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#7f53a4, #a57ac9); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#7f53a4, #a57ac9); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#7f53a4, #a57ac9); /* Standard syntax */
     background-repeat: no-repeat;
-    background-attachment: fixed;
+}
+
+.grayBG {
+    background: #f0ecf4; /* For browsers that do not support gradients */
 }
 
 /*----------------------Center Div Vertically----------------------*/
@@ -30,10 +46,9 @@ html {
 }
 
 .tableCellWrapper {
-    padding-top: 5%;
-    padding-bottom: 5%;
-    display: table-cell;
-    height: 100%;
+    margin: 0dp;
+    display: table-row;
+    height: 45em;
     vertical-align: middle;
 }
 
@@ -72,6 +87,9 @@ html {
 #descriptionOfMe>p {
     margin-top: 3%;
     font-size: calc(12px + 1vw);
+}
+
+.fontType {
     font-family: 'Raleway', sans-serif
 }
 
