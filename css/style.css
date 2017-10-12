@@ -19,6 +19,8 @@ html, body {
 .centerInDiv {
     vertical-align: middle;
     display: table-cell;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 .gradientBG {
@@ -27,15 +29,15 @@ html, body {
     width: 100%;
     height: 100%;
     background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#7f53a4, #a57ac9); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#7f53a4, #a57ac9); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#7f53a4, #a57ac9); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#7f53a4, #a57ac9); /* Standard syntax */
+    background: -webkit-linear-gradient(#1b1526, #8c8ec1); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#1b1526, #8c8ec1); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#1b1526, #8c8ec1); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#1b1526, #8c8ec1); /* Standard syntax */
     background-repeat: no-repeat;
 }
 
 .grayBG {
-    background: #f0ecf4; /* For browsers that do not support gradients */
+    background: #eb3e13; /* For browsers that do not support gradients */
 }
 
 /*----------------------Center Div Vertically----------------------*/
