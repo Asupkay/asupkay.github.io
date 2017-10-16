@@ -5,7 +5,10 @@ html, body {
     margin: 0;
 }
 
-
+.removePadAndMargin {
+    padding: 0;
+    margin: 0;
+}
 
 .centerBlock {
     margin-left: auto;
