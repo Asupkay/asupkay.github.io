@@ -39,8 +39,8 @@ html, body {
     background-repeat: no-repeat;
 }
 
-.grayBG {
-    background: #eb3e13; /* For browsers that do not support gradients */
+.projectsBG {
+    background: #97764b;
 }
 
 /*----------------------Center Div Vertically----------------------*/
@@ -108,7 +108,7 @@ html, body {
 }
 
 #socialMediaLinks>a:hover {
-    color: blue; 
+    color: white; 
 }
 
 #socialMediaLinks>a:active {
