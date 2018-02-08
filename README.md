@@ -1,7 +1,2 @@
 # MY PERSONAL WEBSITE
-## Elements
-* Picture of me
-* My name
-* Short Description of who I am
-* Links to my social media: Github, Facebook, Linkedin, and email
-* Link to my resume
+Hosted on AlexSupkay.com and links to different social media that companies may find interested or use to contact me.
