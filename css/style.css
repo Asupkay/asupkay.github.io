@@ -78,6 +78,7 @@ html {
 /*----------------------Social Media Links----------------------*/
 #socialMediaLinks>a:link {
     color: black;
+    margin: 0% 1%;
 }
 
 #socialMediaLinks>a:visited {
