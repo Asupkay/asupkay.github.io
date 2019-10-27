@@ -23,6 +23,9 @@ html {
 
 main {
     background-image: url("../img/grid.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 @keyframes gradientBG {
