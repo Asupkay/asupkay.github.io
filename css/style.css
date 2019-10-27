@@ -1,6 +1,7 @@
 html {
     height: 100%;
     width 100%;
+    background-image: url("../img/grid.png");
 }
 
 .centerBlock {
@@ -14,12 +15,48 @@ html {
     width: 100%;
     height: 100%;
     background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(red, yellow); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(red, yellow); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(red, yellow); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(red, yellow); /* Standard syntax */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /*background: linear-gradient(180deg, #001F38, #526079, #9A7E8E, #E3757F, #FD997F, #FFD0AA);*/
+    background: linear-gradient(180deg, #4900FF, #9600FF, #FF00C1, #00B8FF, #00FFF9);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease-in-out infinite alternate;
+}
+
+main {
+    background-image: url("../img/grid.png");
+}
+
+@keyframes gradientBG {
+	0% {
+		background-position: 0% 0%;
+	}
+	50% {
+		background-position: 50% 50%;
+	}
+	100% {
+		background-position: 100% 100%;
+	}
+}
+
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  0% { width: 0 }
+  100% { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #fffb96; }
 }
 
 /*----------------------Center Div Vertically----------------------*/
@@ -30,11 +67,10 @@ html {
 }
 
 .tableCellWrapper {
-    padding-top: 5%;
-    padding-bottom: 5%;
     display: table-cell;
     height: 100%;
     vertical-align: middle;
+    opacity: 1;
 }
 
 /*----------------------Format Image of Me in Main----------------------*/
@@ -63,14 +99,13 @@ html {
 
 #descriptionOfMe>h1 {
     font-weight: normal;
-    font-size: calc(24px + 3vw);
-    font-family: 'Libre Barcode 128 Text', cursive;
+    font-size: calc(1px + 3vw);
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
 #descriptionOfMe>p {
-    margin-top: 3%;
+    margin: 2% 0%;
     font-size: calc(12px + 1vw);
     font-family: 'Raleway', sans-serif
 }
