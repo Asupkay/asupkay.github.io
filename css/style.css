@@ -420,3 +420,15 @@ main {
 #forkistImage  {
     width: 100%;
 }
+
+/*---------------------Critter Clock Image----------------------*/
+#critterClockLink {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 15%;
+}
+
+#critterClockImage  {
+    width: 100%;
+}
