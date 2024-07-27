@@ -22,21 +22,14 @@ body {
     height: 100%;
 }
 
-main {
+.aboutMe {
     position: absolute;
-}
-
-/*----------------------Center Div Vertically----------------------*/
-.table {
+    background-color: rgba(255,255,255,.1);
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.tableCellWrapper {
-    opacity: 1;
 }
 
 /*----------------------Format Image of Me in Main----------------------*/
