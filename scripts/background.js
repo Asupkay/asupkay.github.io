@@ -188,6 +188,17 @@ camera.position.z = 50;
 camera.position.y = 50;
 camera.position.x = 50;
 
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+
+let pointerInit = false;
+function onPointerMove(event) {
+  pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  pointerInit = true;
+}
+
+window.addEventListener('pointermove', onPointerMove);
 window.addEventListener('resize', onWindowResize, false);
 
 function onWindowResize() {
@@ -213,6 +224,16 @@ function animate() {
     const height = 20 * Math.pow(noise(cube.position.x/8, cube.position.z/8), 5);
     cube.position.y = height/2;
     cube.scale.y = height + Math.pow(noise(cube.position.x/20 + frame/400, cube.position.z/20 + frame/400),5) * 30;
+  }
+
+  raycaster.setFromCamera(pointer, camera);
+
+  if (pointerInit) {
+    const intersects = raycaster.intersectObjects(scene.children);
+
+    if (intersects.length > 0) {
+      intersects[0].object.material.color.set(0x000000);
+    }
   }
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
