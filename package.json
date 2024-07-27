@@ -1,0 +1,15 @@
+{
+  "name": "asupkay.github.io",
+  "version": "1.0.0",
+  "description": "Hosted on AlexSupkay.com and links to different social media that companies may find interesting or use to contact me.",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^14.2.3"
+  }
+}
