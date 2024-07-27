@@ -23,8 +23,17 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Raleway" rel="stylesheet"> 
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@v0.167.0/build/three.module.js"
+        }
+      }
+    </script>
+
   </head>
-  <body class="gradientBG">
+  <body>
+    <div id="canvas"></div>
     <main class="table">
       <div class="tableCellWrapper">
         <div id="meImageHolder" class="centerBlock">
@@ -32,8 +41,8 @@
           <hr/>
         </div>
         <div id="descriptionOfMe" class="centerBlock">
-          <h1 class="typewriter glitch" data-text="Λｌｅｘ░Ｓｕｐｋａｙ（志願者）">Λｌｅｘ░Ｓｕｐｋａｙ（志願者）</h1>
-          <p class="glitch" data-text="Software Engineer at Art Blocks">Software Engineer at Art Blocks</p>
+          <h1 class="glitch" data-text="Alex Supkay">Alex Supkay</h1>
+          <p class="glitch" data-text="Software Engineer at Art Blocks">Senior Engineering Manager at Art Blocks</p>
           <div id="socialMediaLinks">
             <a aria-label="GitHub" href="https://github.com/Asupkay"><i class="fa fa-github-square fa-5x" aria-hidden="true"></i></a>
             <a aria-label="Facebook" href="https://www.facebook.com/alex.supkay"><i class="fa fa-facebook-square fa-5x" aria-hidden="true"></i></a>
@@ -56,4 +65,5 @@
       <img id="critterClockImage" src="img/critterClockTextLogo500x100.png" alt="Critter Clock">
     </a>
   </body>
+  <script type="module" src="./scripts/background.js"></script>
 </html>
