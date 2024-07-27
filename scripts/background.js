@@ -198,8 +198,19 @@ function onPointerMove(event) {
   pointerInit = true;
 }
 
+let mouseOver = true;
+function onMouseEnter() {
+  mouseOver = true;
+}
+
+function onMouseLeave() {
+  mouseOver = false;
+}
+
 window.addEventListener('pointermove', onPointerMove);
 window.addEventListener('resize', onWindowResize, false);
+container.addEventListener('mouseleave', onMouseLeave)
+container.addEventListener('mouseenter', onMouseEnter)
 
 function onWindowResize() {
 
@@ -228,7 +239,7 @@ function animate() {
 
   raycaster.setFromCamera(pointer, camera);
 
-  if (pointerInit) {
+  if (pointerInit && mouseOver) {
     const intersects = raycaster.intersectObjects(scene.children);
 
     if (intersects.length > 0) {
