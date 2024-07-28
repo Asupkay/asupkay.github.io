@@ -120,7 +120,6 @@ directionalLight.position.x = 20;
 directionalLight.position.y = 20;
 scene.add( directionalLight );
 
-document.body.appendChild(container);
 const renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.setSize(container.offsetWidth, container.offsetHeight);
 renderer.shadowMap.enabled = true;
