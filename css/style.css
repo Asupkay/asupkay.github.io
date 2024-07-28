@@ -75,7 +75,7 @@ body {
 }
 
 #descriptionOfMe>h1 {
-    font-weight: bold;
+    font-weight: 600;
     font-size: calc(15px + 1vw);
     margin-top: 0px;
     margin-bottom: 0px;
