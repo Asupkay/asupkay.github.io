@@ -204,20 +204,13 @@ function onTouchMove(event) {
   pointerInit = true;
 }
 
-let pointerOver = true;
-function onPointerEnter() {
-  pointerOver = true;
-}
-
 function onPointerLeave() {
-  pointerOver = false;
+  pointerInit = false;
 }
 
 window.addEventListener('mousemove', onPointerMove);
 window.addEventListener('resize', onWindowResize, false);
 container.addEventListener('mouseleave', onPointerLeave)
-container.addEventListener('mouseenter', onPointerEnter)
-container.addEventListener('touchstart', onPointerEnter)
 container.addEventListener('touchend', onPointerLeave)
 container.addEventListener('touchmove', onTouchMove);
 
@@ -248,7 +241,7 @@ function animate() {
 
   raycaster.setFromCamera(pointer, camera);
 
-  if (pointerInit && pointerOver) {
+  if (pointerInit) {
     const intersects = raycaster.intersectObjects(scene.children);
 
     if (intersects.length > 0) {
