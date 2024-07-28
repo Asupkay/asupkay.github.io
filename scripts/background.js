@@ -193,13 +193,14 @@ const pointer = new THREE.Vector2();
 let pointerInit = false;
 function onPointerMove(event) {
   pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  pointer.y = -((event.clientY + window.scrollY) / window.innerHeight) * 2 + 1;
+  console.log(window.scrollY);
   pointerInit = true;
 }
 
 function onTouchMove(event) {
   pointer.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -(event.touches[0].clientY / window.innerHeight) * 2 + 1;
+  pointer.y = -((event.touches[0].clientY + window.scrollY) / window.innerHeight) * 2 + 1;
   pointerInit = true;
 }
 

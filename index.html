@@ -23,6 +23,10 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Raleway" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <script type="importmap">
       {
         "imports": {
@@ -41,8 +45,8 @@
             <hr/>
           </div>
           <div id="descriptionOfMe" class="centerBlock">
-            <h1>Alex Supkay</h1>
-            <p>Senior Engineering Manager at Art Blocks</p>
+            <h1 class="ralewayFont">Alex Supkay</h1>
+            <p class="ralewayFont">Senior Engineering Manager at Art Blocks</p>
             <div id="socialMediaLinks">
               <a aria-label="GitHub" href="https://github.com/Asupkay"><i class="fa fa-github-square fa-5x" aria-hidden="true"></i></a>
               <a aria-label="Facebook" href="https://www.facebook.com/alex.supkay"><i class="fa fa-facebook-square fa-5x" aria-hidden="true"></i></a>
@@ -51,18 +55,37 @@
             </div>
             <a name="Resume" id="resumeLink" href="files/Supkay_Alex_Resume.pdf" target="_blank">
               <div id="resumeButton">
-                <p>My Resume</p>
+                <p class="ralewayFont">My Resume</p>
               </div>
             </a>
           </div>
         </div>
       </div>
-      <a name="Forkist" id="forkistLink" href="https://forkist.com" target="_blank">
-        <img id="forkistImage" src="img/forkistTextLogo500x100.png" alt="Forkist">
-      </a>
-      <a name="Critter Clock" id="critterClockLink" href="https://critterclock.com" target="_blank">
-        <img id="critterClockImage" src="img/critterClockTextLogo500x100.png" alt="Critter Clock">
-      </a>
+      <a id="projectsLink" class="ralewayFont" href="#projects">V Projects V</a>
+    </div>
+    <div class="inconsolataFont projects" id="projects">
+      <div>
+        <h2>
+          [Projects]
+        </h2>
+        <div>
+          Work In Progress
+        </div>
+        <div class="project hidden">
+          <h3>> Critter Clock</h3>
+          <hr>
+          <p>
+            Lorem Ipsem"
+          </p>
+        </div>
+        <div class="project hidden">
+          <h3>> Forkist</h3>
+          <hr>
+          <p>
+            Lorem Ipsem"
+          </p>
+        </div>
+      </div>
     </div>
   </body>
   <script type="module" src="./scripts/background.js"></script>
