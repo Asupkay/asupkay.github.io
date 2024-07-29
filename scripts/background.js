@@ -190,28 +190,30 @@ camera.position.x = 50;
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
-let pointerInit = false;
+function changeRaycastCubes(pointer) {
+  raycaster.setFromCamera(pointer, camera);
+
+  const intersects = raycaster.intersectObjects(scene.children);
+
+  if (intersects.length > 0) {
+    intersects[0].object.material.color.set(0x000000);
+  }
+}
+
 function onPointerMove(event) {
   pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
   pointer.y = -((event.clientY + window.scrollY) / window.innerHeight) * 2 + 1;
-  console.log(window.scrollY);
-  pointerInit = true;
+  changeRaycastCubes(pointer);
 }
 
 function onTouchMove(event) {
   pointer.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
   pointer.y = -((event.touches[0].clientY + window.scrollY) / window.innerHeight) * 2 + 1;
-  pointerInit = true;
-}
-
-function onPointerLeave() {
-  pointerInit = false;
+  changeRaycastCubes(pointer);
 }
 
 window.addEventListener('mousemove', onPointerMove);
 window.addEventListener('resize', onWindowResize, false);
-container.addEventListener('mouseleave', onPointerLeave)
-container.addEventListener('touchend', onPointerLeave)
 container.addEventListener('touchmove', onTouchMove);
 
 function onWindowResize() {
@@ -239,15 +241,6 @@ function animate() {
     cube.scale.y = height + Math.pow(noise(cube.position.x/20 + frame/400, cube.position.z/20 + frame/400),5) * 30;
   }
 
-  raycaster.setFromCamera(pointer, camera);
-
-  if (pointerInit) {
-    const intersects = raycaster.intersectObjects(scene.children);
-
-    if (intersects.length > 0) {
-      intersects[0].object.material.color.set(0x000000);
-    }
-  }
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 
