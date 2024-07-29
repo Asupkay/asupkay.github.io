@@ -201,14 +201,14 @@ function changeRaycastCubes(pointer) {
 }
 
 function onPointerMove(event) {
-  pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -((event.clientY + window.scrollY) / window.innerHeight) * 2 + 1;
+  pointer.x = (event.clientX / container.offsetWidth) * 2 - 1;
+  pointer.y = -((event.clientY + window.scrollY) / container.offsetHeight) * 2 + 1;
   changeRaycastCubes(pointer);
 }
 
 function onTouchMove(event) {
-  pointer.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -((event.touches[0].clientY + window.scrollY) / window.innerHeight) * 2 + 1;
+  pointer.x = (event.touches[0].clientX / container.offsetWidth) * 2 - 1;
+  pointer.y = -((event.touches[0].clientY + window.scrollY) / container.offsetHeight) * 2 + 1;
   changeRaycastCubes(pointer);
 }
 

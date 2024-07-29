@@ -10,6 +10,8 @@ html {
 }
 
 #canvas {
+    position: relative;
+    min-height: 500px;
     background-color: black;
     width: 100%;
     height: 100%;
