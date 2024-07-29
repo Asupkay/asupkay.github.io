@@ -217,7 +217,6 @@ window.addEventListener('resize', onWindowResize, false);
 container.addEventListener('touchmove', onTouchMove);
 
 function onWindowResize() {
-
   renderer.setSize(container.offsetWidth, container.offsetHeight);
   updateCameraAspectRatio(camera, container.offsetWidth/container.offsetHeight);
 }
