@@ -48,6 +48,10 @@ body {
     font-size: calc(12px + 1vw);
 }
 
+#projectLink {
+    color: #ff765c;
+}
+
 .hidden {
     display: none;
 }
