@@ -187,29 +187,100 @@ camera.position.z = 50;
 camera.position.y = 50;
 camera.position.x = 50;
 
+// Create airplane
+const airplane = new THREE.Group();
+
+// Fuselage (body)
+const fuselageGeometry = new THREE.BoxGeometry(0.4, 0.3, 1.2);
+const fuselageMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
+const fuselage = new THREE.Mesh(fuselageGeometry, fuselageMaterial);
+airplane.add(fuselage);
+
+// Wings
+const wingGeometry = new THREE.BoxGeometry(2, 0.08, 0.5);
+const wingMaterial = new THREE.MeshStandardMaterial({ color: 0xff4444 });
+const wings = new THREE.Mesh(wingGeometry, wingMaterial);
+wings.position.z = 0.1;
+airplane.add(wings);
+
+const tailVertGeometry = new THREE.BoxGeometry(0.08, 0.4, 0.3);
+const tailMaterial = new THREE.MeshStandardMaterial({ color: 0xff4444 });
+const tailVert = new THREE.Mesh(tailVertGeometry, tailMaterial);
+tailVert.position.z = -0.5;
+tailVert.position.y = 0.2;
+airplane.add(tailVert);
+
+const tailHorizGeometry = new THREE.BoxGeometry(0.6, 0.06, 0.25);
+const tailHoriz = new THREE.Mesh(tailHorizGeometry, tailMaterial);
+tailHoriz.position.z = -0.5;
+airplane.add(tailHoriz);
+
+const hubGeometry = new THREE.CylinderGeometry(0.08, 0.08, 0.1, 8);
+const hubMaterial = new THREE.MeshStandardMaterial({ color: 0x333333 });
+const hub = new THREE.Mesh(hubGeometry, hubMaterial);
+hub.rotation.x = Math.PI / 2;
+hub.position.z = 0.65;
+airplane.add(hub);
+
+const propellerGeometry = new THREE.BoxGeometry(0.6, 0.04, 0.08);
+const propellerMaterial = new THREE.MeshStandardMaterial({ color: 0x666666 });
+const propeller = new THREE.Mesh(propellerGeometry, propellerMaterial);
+propeller.position.z = 0.7;
+airplane.add(propeller);
+
+// Position airplane above the terrain
+airplane.position.set(0, 8, 0);
+airplane.rotation.order = 'YXZ';
+scene.add(airplane);
+
+// Airplane movement state
+const airplaneTarget = new THREE.Vector3(0, 8, 0);
+const airplaneVelocity = new THREE.Vector3(0, 0, 0);
+let previousHeading = 0;
+let lastMouseMoveTime = 0;
+let circleCenter = new THREE.Vector3(0, 8, 0);
+let circleAngle = 0;
+const circleRadius = 5;
+const idleTimeout = 500; // ms before starting to circle
+
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
 function changeRaycastCubes(pointer) {
   raycaster.setFromCamera(pointer, camera);
 
-  const intersects = raycaster.intersectObjects(scene.children);
+  // Only check cubes, not the airplane
+  const intersects = raycaster.intersectObjects(cubes);
 
   if (intersects.length > 0) {
     intersects[0].object.material.color.set(0x000000);
+    return intersects[0].point;
   }
+  return null;
 }
 
 function onPointerMove(event) {
   pointer.x = (event.clientX / container.offsetWidth) * 2 - 1;
   pointer.y = -((event.clientY + window.scrollY) / container.offsetHeight) * 2 + 1;
-  changeRaycastCubes(pointer);
+  const hitPoint = changeRaycastCubes(pointer);
+
+  if (hitPoint) {
+    airplaneTarget.set(hitPoint.x, 8, hitPoint.z);
+    lastMouseMoveTime = Date.now();
+    circleCenter.set(hitPoint.x, 8, hitPoint.z);
+  }
 }
 
 function onTouchMove(event) {
   pointer.x = (event.touches[0].clientX / container.offsetWidth) * 2 - 1;
   pointer.y = -((event.touches[0].clientY + window.scrollY) / container.offsetHeight) * 2 + 1;
-  changeRaycastCubes(pointer);
+  const hitPoint = changeRaycastCubes(pointer);
+
+  if (hitPoint) {
+    airplaneTarget.set(hitPoint.x, 8, hitPoint.z);
+    lastMouseMoveTime = Date.now();
+    circleCenter.set(hitPoint.x, 8, hitPoint.z);
+  }
 }
 
 window.addEventListener('mousemove', onPointerMove);
@@ -239,6 +310,49 @@ function animate() {
     cube.position.y = height/2;
     cube.scale.y = height + Math.pow(noise(cube.position.x/20 + frame/400, cube.position.z/20 + frame/400),5) * 30;
   }
+
+  // Airplane idle animation
+  const isIdle = Date.now() - lastMouseMoveTime > idleTimeout;
+  if (isIdle) {
+    // Check if plane has reached the mouse first
+    const distToCenter = airplane.position.distanceTo(circleCenter);
+    if (distToCenter < circleRadius + 1) {
+      circleAngle += 0.015; // Slow rotation speed
+      airplaneTarget.x = circleCenter.x + Math.cos(circleAngle) * circleRadius;
+      airplaneTarget.z = circleCenter.z + Math.sin(circleAngle) * circleRadius;
+    }
+  }
+
+  const direction = new THREE.Vector3();
+  direction.subVectors(airplaneTarget, airplane.position);
+  const distance = direction.length();
+
+  if (distance > 0.1) {
+    // Move toward target with smooth easing
+    const speed = 0.08;
+    direction.normalize();
+    airplaneVelocity.lerp(direction.multiplyScalar(speed * Math.min(distance, 5)), 0.1);
+    airplane.position.add(airplaneVelocity);
+
+    // Calculate heading angle (rotation around Y axis)
+    const heading = Math.atan2(airplaneVelocity.x, airplaneVelocity.z);
+    airplane.rotation.y = heading;
+
+    // Banking effect based on turn rate
+    const turnRate = heading - previousHeading;
+    // Normalize turn rate to handle wrap-around
+    const normalizedTurnRate = Math.atan2(Math.sin(turnRate), Math.cos(turnRate));
+    const targetBank = -normalizedTurnRate * 15; // Bank into the turn
+    airplane.rotation.z = THREE.MathUtils.lerp(airplane.rotation.z, targetBank, 0.1);
+
+    previousHeading = heading;
+  } else {
+    // Gradually level out when hovering
+    airplane.rotation.z = THREE.MathUtils.lerp(airplane.rotation.z, 0, 0.05);
+    airplaneVelocity.multiplyScalar(0.95);
+  }
+
+  propeller.rotation.z += 0.5;
 
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
